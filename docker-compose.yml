@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+  proxy:
+    image: cors_proxy
+    ports:
+      - 8090:80
+    environment:
+      - HOST=localhost
+      - PORT=80
+      - PREFIX=/prefix/
+      - PROXY_HOST=http://example.com
+      - ALLOW_ORIGIN=localhost
+      - ALLOW_METHODS=*
+      - ALLOW_HEADERS=*
+      - ALLOW_CREDENTIALS=true

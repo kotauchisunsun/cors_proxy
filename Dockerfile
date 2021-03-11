@@ -1,0 +1,19 @@
+FROM nginx:1.19.6
+
+ENV HOST localhost
+ENV PORT 80
+ENV PREFIX /
+ENV PROXY_HOST https://example.com/
+ENV ALLOW_ORIGIN localhost
+ENV ALLOW_METHODS *
+ENV ALLOW_HEADERS *
+ENV ALLOW_CREDENTIALS true
+
+COPY proxy.conf /
+COPY run.sh /
+
+EXPOSE 80
+
+STOPSIGNAL SIGQUIT
+
+CMD ["/run.sh"]
